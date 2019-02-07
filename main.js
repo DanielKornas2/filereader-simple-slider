@@ -1,9 +1,11 @@
 const inputUploader = document.getElementById("jsInputUploader");
 const imageContainer = document.getElementById("jsImageContainer");
+const successMessage = document.getElementById('jsTextBox');
 const clearPage = document.getElementById("jsClearPage");
 const imageControls = document.getElementById("jsImageControls");
 const prev = imageControls.querySelector("#jsPrev");
 const next = imageControls.querySelector("#jsNext");
+
 let numberOfUploads = 0;
 
 // main function to read data which user sent
@@ -39,7 +41,7 @@ const readData = (fileSource) => {
     }
 
 
-
+    successMessage.innerText = `Succes! You've just add ${fileSource.length} ${fileSource.length===1 ? 'photo' : 'photos'}. Upload more! :)`
 }
 
 const changeImage = () => {
@@ -93,6 +95,7 @@ clearPage.addEventListener('click', () => {
     imageContainer.innerText = "";
     numberOfUploads = 0;
     imageControls.classList.remove("show");
+    successMessage.innerText = "Select or drag images."
 })
 
 changeImage();
