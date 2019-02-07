@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css">
     <title>File Reader</title>
 </head>
@@ -12,13 +13,16 @@
 <body>
     <div class="content">
         <input type="file" id="jsInputUploader" multiple accept="image/*" />
-        <button id="jsClearPage">Clear page</button>
+        <label for="jsInputUploader" class="content__actionButton">Choose images</label>
+        <button id="jsClearPage" class="content__actionButton content__actionButton--clearPage">Clear page</button>
         <div id="jsImageControls" class="content__imageControls">
-            <span id="jsPrev">
-                <</span> <span id="jsNext">>
-            </span>
+            <button id="jsPrev">
+                <</button> <button id="jsNext">>
+            </button>
         </div>
+        <p id="jsTextBox">Select or drag images.</p>
         <section id="jsImageContainer" class="content__imageContainer"></section>
+        </section>
     </div>
     <script src="main.js"></script>
 </body>

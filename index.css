@@ -1,17 +1,50 @@
 .content {
     padding: 20px;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content input {
+    display: none;
+}
+
+.content p {
+    text-align: center;
+    color: #3e915b;
+}
+
+.content__actionButton {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 8px 22px;
+    color: #fff;
+    background-color: #198d9f;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.content__actionButton--clearPage {
+    margin-top: 10px;
+    font-size: 11px;
+    background-color: #565a5b;
 }
 
 .content__imageContainer {
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .content__imageContainer img {
-    max-width: 600px;
-    width: 100%;
+    max-width: 800px;
+    width: calc(100% - 40px);
     height: auto;
     position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto 20px auto;
     opacity: 0;
     visibility: hidden;
     transition: visibility 0s, opacity 1s linear;
@@ -23,12 +56,21 @@
 }
 
 .content__imageControls {
-    width: 50px;
-    height: 50px;
-    background: red;
+    width: 80px;
+    height: 40px;
+    margin: 50px  auto 10px auto;
     display: none;
 }
 
+.content__imageControls button {
+    width: 48%;
+    height: 100%;
+    background: #fff;
+    color: #565a5b;
+    border: 1px solid #e0e6e7;
+}
+
 .show {
-    display: block;
+    display: flex;
+    justify-content: space-between;
 }
