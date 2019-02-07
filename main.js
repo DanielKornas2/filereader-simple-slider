@@ -1,6 +1,5 @@
-const imageArea = document.getElementById("imageArea");
-const inputUploader = imageArea.querySelector("#inputUploader");
-const imageContainer = imageArea.querySelector("#imageContainer");
+const inputUploader = document.getElementById("inputUploader");
+const imageContainer = document.getElementById("imageContainer");
 
 
 
@@ -33,15 +32,14 @@ inputUploader.addEventListener("change", (e) => {
     readData(inputUploader.files);
 })
 
-imageArea.addEventListener('dragover', (e) => {
+document.addEventListener('dragover', (e) => {
     e.preventDefault();
     e.stopPropagation();
 }, false)
 
-// drop event - there instead of input files shoud be dataTransfer.files on event
-imageArea.addEventListener('drop', (e) => {
+// drop event - instead of input files shoud be dataTransfer.files on event
+document.addEventListener('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
     readData(e.dataTransfer.files);
-
 }, false)
