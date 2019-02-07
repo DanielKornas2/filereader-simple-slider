@@ -36,7 +36,7 @@ const readData = (fileSource) => {
         fileReader.readAsDataURL(fileSource[i]);
     }
 
-    if (!imageControls.classList.contains("show")) {
+    if (!imageControls.classList.contains("show") && numberOfUploads > 1) {
         imageControls.classList.add("show");
     }
 
