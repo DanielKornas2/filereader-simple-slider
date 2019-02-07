@@ -59,7 +59,7 @@
     width: 80px;
     height: 40px;
     margin: 50px  auto 10px auto;
-    display: none;
+    visibility: hidden;
 }
 
 .content__imageControls button {
@@ -72,5 +72,6 @@
 
 .show {
     display: flex;
+    visibility: visible;
     justify-content: space-between;
 }

@@ -7,12 +7,14 @@ const prev = imageControls.querySelector("#jsPrev");
 const next = imageControls.querySelector("#jsNext");
 
 let numberOfUploads = 0;
+let sliderPhotos = 0;
 
 // main function to read data which user sent
 // fileSource - when user click and add files - it'll be inputUploader.files but when drag images - e.dataTransfer.files - thats why i need here an argument
 const readData = (fileSource) => {
 
     numberOfUploads++;
+    sliderPhotos = sliderPhotos + fileSource.length;
 
     for (let i = 0; i < fileSource.length; i++) {
         // new FileReader instance . Avaliable methods - https://developer.mozilla.org/en-US/docs/Web/API/FileReader#Methods
@@ -40,13 +42,12 @@ const readData = (fileSource) => {
         imageControls.classList.add("show");
     }
 
-
-    successMessage.innerText = `Succes! You've just add ${fileSource.length} ${fileSource.length===1 ? 'photo' : 'photos'}. Upload more! :)`
+    successMessage.innerText = `Success! You've just add ${fileSource.length} ${fileSource.length===1 ? 'photo' : 'photos'}. Your super splider consists of ${sliderPhotos} ${sliderPhotos===1 ? 'photo' : 'photos'}. Upload more! :)`
 }
 
 const changeImage = () => {
 
-    var imageIndex = 0;
+    let imageIndex = 0;
 
     next.addEventListener("click", () => {
         imageIndex++;
