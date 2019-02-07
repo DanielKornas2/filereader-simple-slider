@@ -15,6 +15,8 @@
 
 .content__actionButton {
     display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: 0 auto;
     padding: 8px 22px;
@@ -47,6 +49,8 @@
     margin: 0 auto 20px auto;
     opacity: 0;
     visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 1s linear;
+    -o-transition: visibility 0s, opacity 1s linear;
     transition: visibility 0s, opacity 1s linear;
 }
 
@@ -58,7 +62,7 @@
 .content__imageControls {
     width: 80px;
     height: 40px;
-    margin: 50px  auto 10px auto;
+    margin: 50px auto 10px auto;
     visibility: hidden;
 }
 
@@ -71,7 +75,11 @@
 }
 
 .show {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     visibility: visible;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
