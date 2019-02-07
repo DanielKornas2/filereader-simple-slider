@@ -25,15 +25,34 @@ const readData = (fileSource) => {
 
         // URL representings the file's data 
         fileReader.readAsDataURL(fileSource[i]);
+        console.log(fileSource[i])
     }
 
-    if(!imageControls.classList.contains("show")){
+    if (!imageControls.classList.contains("show")) {
         imageControls.classList.add("show");
     }
+
     
 
 }
 
+const changeImage = () => {
+    let imageIndex = 0;
+    
+    next.addEventListener("click", () => {
+        imageIndex++;
+
+        console.log(imageIndex)
+    })
+
+    prev.addEventListener("click", () => {
+        imageIndex--
+
+        console.log(imageIndex)
+    })
+
+    
+}
 
 // read data when user choose file by click and select
 inputUploader.addEventListener("change", () => {
@@ -53,7 +72,9 @@ document.addEventListener('drop', (e) => {
     readData(e.dataTransfer.files);
 }, false)
 
-clearPage.addEventListener('click', ()=>{
+clearPage.addEventListener('click', () => {
     imageContainer.innerText = "";
     imageControls.classList.remove("show");
 })
+
+changeImage();
