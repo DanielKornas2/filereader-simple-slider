@@ -1,5 +1,6 @@
 const inputUploader = document.getElementById("inputUploader");
 const imageContainer = document.getElementById("imageContainer");
+const clearPage = document.getElementById("clearPage");
 
 
 
@@ -11,7 +12,7 @@ const readData = (fileSource) => {
         // new FileReader instance . Avaliable methods - https://developer.mozilla.org/en-US/docs/Web/API/FileReader#Methods
         const fileReader = new FileReader();
 
-        fileReader.onload = (e) => {
+        fileReader.onload = () => {
             const newImage = new Image();
 
             // .result - returns the file's contents
@@ -27,7 +28,7 @@ const readData = (fileSource) => {
 
 
 // read data when user choose file by click and select
-inputUploader.addEventListener("change", (e) => {
+inputUploader.addEventListener("change", () => {
     // inputUploader.files - returns an array of all uploaded files with lastMofifiedDate prop, size, name etc
     readData(inputUploader.files);
 })
@@ -43,3 +44,7 @@ document.addEventListener('drop', (e) => {
     e.stopPropagation();
     readData(e.dataTransfer.files);
 }, false)
+
+clearPage.addEventListener('click', ()=>{
+    imageContainer.innerText = "";
+})
