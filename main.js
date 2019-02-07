@@ -1,0 +1,47 @@
+const imageArea = document.getElementById("imageArea");
+const inputUploader = imageArea.querySelector("#inputUploader");
+const imageContainer = imageArea.querySelector("#imageContainer");
+
+
+
+// main function to read data which user sent
+// fileSource - when user click and add files - it'll be inputUploader.files but when drag images - e.dataTransfer.files - thats why i need here an argument
+const readData = (fileSource) => {
+
+    for (let i = 0; i < fileSource.length; i++) {
+        // new FileReader instance . Avaliable methods - https://developer.mozilla.org/en-US/docs/Web/API/FileReader#Methods
+        const fileReader = new FileReader();
+
+        fileReader.onload = (e) => {
+            const newImage = new Image();
+
+            // .result - returns the file's contents
+            newImage.src = fileReader.result;
+            imageContainer.appendChild(newImage);
+        }
+
+        // URL representings the file's data 
+        fileReader.readAsDataURL(fileSource[i]);
+    }
+
+}
+
+
+// read data when user choose file by click and select
+inputUploader.addEventListener("change", (e) => {
+    // inputUploader.files - returns an array of all uploaded files with lastMofifiedDate prop, size, name etc
+    readData(inputUploader.files);
+})
+
+imageArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+}, false)
+
+// drop event - there instead of input files shoud be dataTransfer.files on event
+imageArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    readData(e.dataTransfer.files);
+
+}, false)
