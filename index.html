@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <title>File Reader</title>
 </head>
 
 <body>
-    <div style="width: 500px; height: 800px; background:#ccc;overflow:hidden;" id="imageArea">
-        <input type="file" id="inputUploader" multiple accept="image/*"/>
-        <button id="clearPage">Clear page</button>
-        <section id="imageContainer"></section>
+    <div class="content">
+        <input type="file" id="jsInputUploader" multiple accept="image/*"/>
+        <button id="jsClearPage">Clear page</button>
+        <section id="jsImageContainer" class="content__imageContainer"></section>
+        <div id="jsImageControls" class="content__imageControls">
+            <span id="jsPrev"><</span>
+            <span id="jsNext">></span>
+        </div>
+        
     </div>
     <script src="main.js"></script>
 </body>

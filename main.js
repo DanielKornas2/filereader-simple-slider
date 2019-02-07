@@ -1,6 +1,9 @@
-const inputUploader = document.getElementById("inputUploader");
-const imageContainer = document.getElementById("imageContainer");
-const clearPage = document.getElementById("clearPage");
+const inputUploader = document.getElementById("jsInputUploader");
+const imageContainer = document.getElementById("jsImageContainer");
+const clearPage = document.getElementById("jsClearPage");
+const imageControls = document.getElementById("jsImageControls");
+const prev = imageControls.querySelector("#jsPrev");
+const next = imageControls.querySelector("#jsNext");
 
 
 
@@ -23,6 +26,11 @@ const readData = (fileSource) => {
         // URL representings the file's data 
         fileReader.readAsDataURL(fileSource[i]);
     }
+
+    if(!imageControls.classList.contains("show")){
+        imageControls.classList.add("show");
+    }
+    
 
 }
 
@@ -47,4 +55,5 @@ document.addEventListener('drop', (e) => {
 
 clearPage.addEventListener('click', ()=>{
     imageContainer.innerText = "";
+    imageControls.classList.remove("show");
 })
