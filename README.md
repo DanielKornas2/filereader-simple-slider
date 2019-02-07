@@ -1,6 +1,6 @@
 ## FileReader API - testowa aplikacja
 
-Slider zdjęć zuploadowanych przez użytkownika.
+Slider zdjęć zuploadowanych przez użytkownika. Pierwsze godziny z nowym API.
 
 ### Funkcjonalności
 
