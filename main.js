@@ -38,11 +38,11 @@ const readData = (fileSource) => {
         fileReader.readAsDataURL(fileSource[i]);
     }
 
-    if (!imageControls.classList.contains("show") && numberOfUploads > 1) {
+    if (!imageControls.classList.contains("show") && sliderPhotos > 1) {
         imageControls.classList.add("show");
     }
 
-    successMessage.innerText = `Success! You've just add ${fileSource.length} ${fileSource.length===1 ? 'photo' : 'photos'}. Your super splider consists of ${sliderPhotos} ${sliderPhotos===1 ? 'photo' : 'photos'}. Upload more! :)`
+    successMessage.innerText = `Success! You've just add ${fileSource.length} ${fileSource.length===1 ? 'photo' : 'photos'}. Your super slider consists of ${sliderPhotos} ${sliderPhotos===1 ? 'photo' : 'photos'}. Upload more! :)`
 }
 
 const changeImage = () => {
