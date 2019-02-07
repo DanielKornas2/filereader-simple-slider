@@ -42,7 +42,7 @@ const readData = (fileSource) => {
         imageControls.classList.add("show");
     }
 
-    successMessage.innerText = `Success! You've just add ${fileSource.length} ${fileSource.length===1 ? 'photo' : 'photos'}. Your super slider consists of ${sliderPhotos} ${sliderPhotos===1 ? 'photo' : 'photos'}. Upload more! :)`
+    successMessage.innerText = `Success! You've just added ${fileSource.length} ${fileSource.length===1 ? 'photo' : 'photos'}. Your super slider consists of ${sliderPhotos} ${sliderPhotos===1 ? 'photo' : 'photos'}. Upload more! :)`
 }
 
 const changeImage = () => {
