@@ -4,12 +4,13 @@ const clearPage = document.getElementById("jsClearPage");
 const imageControls = document.getElementById("jsImageControls");
 const prev = imageControls.querySelector("#jsPrev");
 const next = imageControls.querySelector("#jsNext");
-
-
+let numberOfUploads = 0;
 
 // main function to read data which user sent
 // fileSource - when user click and add files - it'll be inputUploader.files but when drag images - e.dataTransfer.files - thats why i need here an argument
 const readData = (fileSource) => {
+
+    numberOfUploads++;
 
     for (let i = 0; i < fileSource.length; i++) {
         // new FileReader instance . Avaliable methods - https://developer.mozilla.org/en-US/docs/Web/API/FileReader#Methods
@@ -20,38 +21,54 @@ const readData = (fileSource) => {
 
             // .result - returns the file's contents
             newImage.src = fileReader.result;
+
+            if (numberOfUploads === 1 && i === 0) {
+                //fist image should be visible only in 1st image upload
+                newImage.classList.add("visible");
+            }
+
             imageContainer.appendChild(newImage);
         }
 
         // URL representings the file's data 
         fileReader.readAsDataURL(fileSource[i]);
-        console.log(fileSource[i])
     }
 
     if (!imageControls.classList.contains("show")) {
         imageControls.classList.add("show");
     }
 
-    
+
 
 }
 
 const changeImage = () => {
-    let imageIndex = 0;
-    
+
+    var imageIndex = 0;
+
     next.addEventListener("click", () => {
         imageIndex++;
+        const maxImageIndex = imageContainer.querySelectorAll("img").length;
 
-        console.log(imageIndex)
+        imageContainer.querySelectorAll("img")[imageIndex - 1].classList.remove("visible")
+        if (imageIndex === maxImageIndex) {
+            imageIndex = 0;
+        }
+        imageContainer.querySelectorAll("img")[imageIndex].classList.add("visible");
     })
 
     prev.addEventListener("click", () => {
-        imageIndex--
+        imageIndex--;
+        const maxImageIndex = imageContainer.querySelectorAll("img").length;
 
-        console.log(imageIndex)
+        imageContainer.querySelectorAll("img")[imageIndex + 1].classList.remove("visible")
+        if (imageIndex === -1) {
+            imageIndex = maxImageIndex - 1;
+        }
+        imageContainer.querySelectorAll("img")[imageIndex].classList.add("visible");
     })
 
-    
+
 }
 
 // read data when user choose file by click and select
@@ -74,6 +91,7 @@ document.addEventListener('drop', (e) => {
 
 clearPage.addEventListener('click', () => {
     imageContainer.innerText = "";
+    numberOfUploads = 0;
     imageControls.classList.remove("show");
 })
 
